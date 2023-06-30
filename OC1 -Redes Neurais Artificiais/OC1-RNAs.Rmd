@@ -1,0 +1,56 @@
+---
+title: "Plano de Ensino"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - CAMTUC - FEE"
+author: "Prof. Dr. Raphael Teixeira"
+#date: "08/12/202"
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,ufpa-fontes.css, ufpa.css]
+    lib_dir: libs
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+---
+
+# Tópicos especiais em controle
+
+1 - Introdução à Física do Estado sólido
+  - Matéria e radiação - Física Quântica
+  - Estrutura atômica e ligações interatômicas
+  - Efeito fotoelétrico
+  - Válvula triodo
+
+2 - Propriedades elétricas do materiais
+  - Estrutura dos Sólidos Cristalinos
+  - Bandas de Energia
+  - Condutividade e resistividade elétrica
+  - Semicondutores intrínsicos, extrínsicos 
+  - Propriedades magnéticas
+  - Propriedades ópticas
+
+---
+
+
+---
+
+# Avaliação
+- Frequência acima de 75%;
+- Arquivos notebooks das atividades: 5 pts;
+- Apresentação individual de trabalho final;
+- Artigo em dupla de trabalho final;
+
+
+---
+
+# Calendário
+
+---
+class: title-slide-final, middle
