@@ -1,0 +1,39 @@
+---
+title: "Plano de Ensino"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
+author: "Prof. Dr. Raphael Teixeira"
+#date: "08/12/202"
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,\libs\ufpa-fontes.css, libs\ufpa.css]
+    lib_dir: libs
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+header-includes:
+- \ifdefined\HCode\def\pgfsysdriver{pgfsys-dvisvgm4ht.def}\fi
+- \usepackage{tikz}
+- \usepackage{pgfplots}
+  
+---
+
+# Engenharia de Controle: Fundamentos
+
+
+# Identificação de sistemas:
+
+# Aprendizagem de Máquina
+
+# Aprendizagem Profunda
+
+# Sistemas de controle 
+
+---
+class: title-slide-final, middle
