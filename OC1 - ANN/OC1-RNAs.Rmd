@@ -1,7 +1,7 @@
 ---
-title: "Plano de Ensino"
+title: "Redes Neurais Artificiais"
 subtitle: "Tópicos Especiais em Controle"
-institute: "UFPA - CAMTUC - FEE"
+institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
 author: "Prof. Dr. Raphael Teixeira"
 #date: "08/12/202"
 output:
@@ -20,21 +20,9 @@ output:
 
 ---
 
-# Tópicos especiais em controle
+# Redes neurais artificiais
 
-1 - Introdução à Física do Estado sólido
-  - Matéria e radiação - Física Quântica
-  - Estrutura atômica e ligações interatômicas
-  - Efeito fotoelétrico
-  - Válvula triodo
-
-2 - Propriedades elétricas do materiais
-  - Estrutura dos Sólidos Cristalinos
-  - Bandas de Energia
-  - Condutividade e resistividade elétrica
-  - Semicondutores intrínsicos, extrínsicos 
-  - Propriedades magnéticas
-  - Propriedades ópticas
+Algoritmos de inteligência computacional inspirados na estrutura de processamento de informação dos sistemas neurológicos vivos, otimizados para aproximar funções matemáticas complexas.
 
 ---
 

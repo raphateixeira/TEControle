@@ -1,0 +1,44 @@
+---
+title: "Redes Neurais Artificiais"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
+author: "Prof. Dr. Raphael Teixeira"
+#date: "08/12/202"
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,ufpa-fontes.css, ufpa.css]
+    lib_dir: libs
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+---
+
+# Redes neurais artificiais
+
+Algoritmos de inteligência computacional inspirados na estrutura de processamento de informação dos sistemas neurológicos vivos, otimizados para aproximar funções matemáticas complexas.
+
+---
+
+
+---
+
+# Avaliação
+- Frequência acima de 75%;
+- Arquivos notebooks das atividades: 5 pts;
+- Apresentação individual de trabalho final;
+- Artigo em dupla de trabalho final;
+
+
+---
+
+# Calendário
+
+---
+class: title-slide-final, middle

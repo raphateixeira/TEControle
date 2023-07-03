@@ -1,0 +1,100 @@
+---
+title: "SINDy - Identificação esparsa de modelos não-lineares"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
+author: "Prof. Dr. Raphael Teixeira"
+#date: "08/12/202"
+# Baseado no estilo Rutgers
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,ufpa-fontes.css, ufpa.css]
+    lib_dir: libs
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+---
+
+# Modelagem Matemática
+
+Algoritmos de inteligência computacional inspirados na estrutura de processamento de informação dos sistemas neurológicos vivos, otimizados para aproximar funções matemáticas complexas.
+
+ - Identificação de modelos matemáticos não-lineares, com representação de estados, via regressão esparsa; 
+ - Modelos de estados representam uma grande gama de sistemas lineares e não lineares;
+
+Sistemas contínuos:
+
+$$ \dot{x} = f(x,u) $$
+- $x \in \mathbb{R}^n$ Vetor de estados;
+- $u \in \mathbb{R}^m$ Vetor de entradas;
+- $f(\cdot)$ Vetor de funções que definem a dinâmica dos estados;
+
+
+---
+
+# Modelagem Matemática: modelos esparsos
+
+Representações de estados são parametrizados com poucos termos:
+
+  - O lado direito de ${f}(\cdot)$ é uma combinação linear nos parâmetros;
+  - Sistemas Lineares: combinações lineares em ${x}$ e ${u}$;
+  - Sistemas Não-lineares: combinação compacta de termos em ${x}$ e ${u}$;
+
+---
+# Modelagem matemática
+
+Busca-se aproximar ${f}({x},{u})$ por uma combinação generalizada de termos:
+
+$$
+{f}({x},{u}) \approx \sum_{k=1}^p\theta_k({x},{u})\xi_k = {\Theta}({x},{u}){\xi}
+$$
+
+---
+# Coleta de dados
+
+Amostras dos estados e entradas agrupados na forma:
+
+<div class="math">
+\[
+{X} = \begin{bmatrix}
+| & | &   & | \\
+{x}_1 & {x}_2 & \dotsi  &  {x}_n \\
+|   &  |   &    &  |
+\end{bmatrix}
+\qquad \qquad
+{U} = \begin{bmatrix}
+| & | &   & |  \\
+{u}_1 & {u}_2 & \dotsi  &  {u}_m \\
+|   &  |   &    &  |
+\end{bmatrix}
+\]
+</div>
+
+Dados das derivadas dos estados podem ser determinados numericamente:
+<div class="math">
+\[
+  {\dot{X}} = \begin{bmatrix}
+| & | &   & |  \\
+{\dot{x}}_1 & {\dot{x}}_2 & \dotsi  &  {\dot{x}}_n \\
+|   &  |   &    &  |
+\end{bmatrix}
+\]
+</div>
+
+---
+# Biblioteca de termos candidatos
+
+
+
+
+---
+class: title-slide-final, middle
+
+<img src="img\logonegufpa.png" height="200px" width="150px" />
+
