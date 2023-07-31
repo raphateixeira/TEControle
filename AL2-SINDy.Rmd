@@ -1,5 +1,5 @@
 ---
-title: "SINDy - Identificação esparsa de modelos não-lineares"
+title: "SINDy - Identificação esparsa não-linear"
 subtitle: "Tópicos Especiais em Controle"
 institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
 author: "Prof. Dr. Raphael Teixeira"
