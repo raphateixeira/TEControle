@@ -7,7 +7,7 @@ Repositório de conteúdo das atividades da disciplina de tópicos especiais em 
   
 - 1 - [DadosSVD](AL1-PadroesDadosSVD.html)
   
-- 2 - [SimulaSistema](AL2-SimulaSistema.html)
+- 2 - [SimulaSistema](AL2-SimulaSIstema.html)
   
 - 3 - [SINDy](AL5-SINDy.html)
   
