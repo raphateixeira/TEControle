@@ -1,7 +1,7 @@
 ---
 title: "Plano de Ensino"
 subtitle: "Tópicos Especiais em Controle"
-institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
 author: "Prof. Dr. Raphael Teixeira"
 #date: "08/12/202"
 output:
@@ -17,10 +17,6 @@ output:
       #highlightLanguage: ["r"]
       countIncrementalSlides: false
       ratio: "16:10"
-header-includes:
-- \ifdefined\HCode\def\pgfsysdriver{pgfsys-dvisvgm4ht.def}\fi
-- \usepackage{tikz}
-- \usepackage{pgfplots}
   
 ---
 
