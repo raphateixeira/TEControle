@@ -1,0 +1,32 @@
+---
+title: "Padrões em dados - SVD"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
+author: "Prof. Dr. Raphael Teixeira"
+#date: "08/12/202"
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,ufpa-fontes.css, ufpa.css]
+    lib_dir: libs
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+---
+
+# Informação em dados
+
+
+
+---
+
+# Decomposição em valores singulares
+
+---
+class: title-slide-final, middle
