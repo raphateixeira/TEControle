@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Auto-Encoders</title>
+    <title>SINDy - Identificação esparsa de modelos não-lineares</title>
     <meta charset="utf-8" />
     <meta name="author" content="Prof. Dr. Raphael Teixeira" />
     <script src="libs/header-attrs-2.21/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Auto-Encoders
+# SINDy - Identificação esparsa de modelos não-lineares
 ]
 .subtitle[
 ## Tópicos Especiais em Controle
@@ -29,125 +29,74 @@ class: center, middle, inverse, title-slide
 ---
 
 
+# Modelagem Matemática
 
-# AutoEncoder - Conceito 1:
+Algoritmos de inteligência computacional inspirados na estrutura de processamento de informação dos sistemas neurológicos vivos, otimizados para aproximar funções matemáticas complexas.
 
-Aprendizagem não-supervisionada para redução não-linear de dimensionalidade;
+ - Identificação de modelos matemáticos não-lineares, com representação de estados, via regressão esparsa; 
+ - Modelos de estados representam uma grande gama de sistemas lineares e não lineares;
 
-- AutoEncoder generaliza SVD (linear);
+Sistemas contínuos:
 
-&lt;p align="center"&gt;
-  &lt;img src="img/imgAutoencoder/EncoderDecoderConceito.png" width = 60%/&gt;
-&lt;/p&gt;
-
-Encoder e decoder: Mapeamentos _não-lineares_ (RNA):
-
- - `\(\mathbf{x}_i \in \mathbb{R}^n\)` - Dados do espaço de entrada `\(\mathbf{X}\)` (alta dimensão);
- - `\(\mathbf{z}_i \in \mathbb{R}^r\)` - Dados do _espaço latente_  `\(\mathbf{Z}\)` (baixa dimensão);
- - `\(\hat{\mathbf{x}}_i \in \mathbb{R}^n\)` - Dados do espaço de saída `\(\hat{\mathbf{X}}\)` (alta dimensão);
-
-
-
----
-# AutoEncoder: Fundamentação matemática
-
-$$ \mathbf{Z} = \varphi(\mathbf{X})\hspace{2cm} \hat{\mathbf{X}} = \psi(\mathbf{Z}) $$
-
-&lt;p align="center"&gt;
-  &lt;img src="img/imgAutoencoder/AutoEncoderBrunton.png" width = 45%/&gt;
-&lt;/p&gt;
-
-
-$$ f_{\theta}(\mathbf{x}) = \psi(\varphi(x)) = (\psi\circ\varphi)x$$
-
-`$$\mathrm{arg_{\theta}min} \;\;\lVert\mathbf{X} - \hat{\mathbf{X}}\rVert_2 = \mathrm{arg_{\theta}min} \;\;\lVert\mathbf{X} - f_{\theta}(\mathbf{X})\rVert_2$$`
-
-`$$\mathrm{arg_{\theta}min} \;\;||\mathbf{X} - (\psi\circ\varphi)x||_2$$`
-
----
-
-# AutoEncoder - Camada Única
-
-Codigo Keras:
-
-
-```python
-import keras
-from keras import layers
-
-x_dim = 784 # Dimensão da entrada (x)
-z_dim = 32  # Dimensão da representação (z)
-
-# Camada de entrada:
-x = keras.Input(shape=(x_dim,))
-
-# Rede Encoder:
-z = layers.Dense(z_dim, activation='relu')(x)
-
-# Rede Decoder:
-y = layers.Dense(x_dim, activation='sigmoid')(z)
-```
+$$ \dot{x} = f(x,u) $$
+- `\(x \in \mathbb{R}^n\)` Vetor de estados;
+- `\(u \in \mathbb{R}^m\)` Vetor de entradas;
+- `\(f(\cdot)\)` Vetor de funções que definem a dinâmica dos estados;
 
 
 ---
 
-# Modelos Encoder e Decoder
+# Modelagem Matemática: modelos esparsos
 
-Modelo do autoencoder: `\((\psi\circ\varphi)(\mathbf{x})\)` - - Mapeia a entrada para a sua reconstrução:
+Representações de estados são parametrizados com poucos termos:
 
-
-```python
-AutoEncoder = keras.Model(x, y)
-```
-
-Modelo do Encoder: `\(\mathbf{z} = \varphi(\mathbf{x})\)`
-
-```python
-Encoder = keras.Model(x, z)
-```
-
-Modelo do Decoder: `\(y = \hat{\mathbf{x}} = \varphi(\mathbf{x})\)`
-
-```python
-# Entrada com dimensão r
-z = keras.Input(shape=(r,))
-# Última camada do modelo AutoEncoder
-decoder_layer = AutoEncoder.layers[-1]
-# Cria modelo decoder
-Decoder = keras.Model(encoded_input, decoder_layer(encoded_input))
-```
+  - O lado direito de `\({f}(\cdot)\)` é uma combinação linear nos parâmetros;
+  - Sistemas Lineares: combinações lineares em `\({x}\)` e `\({u}\)`;
+  - Sistemas Não-lineares: combinação compacta de termos em `\({x}\)` e `\({u}\)`;
 
 ---
+# Modelagem matemática
 
-# Configura modelo AutoEncoder:
+Busca-se aproximar `\({f}({x},{u})\)` por uma combinação generalizada de termos:
 
-
-```python
-autoencoder.compile(optimizer = 'adam', 
-                         loss = 'binary_crossentropy')
-```
----
-# Notas AutoEncoders
-
-Fontes:
-- Brunton - Data-Driven Science and Engineeging;
-- [IntroDeepLearning](http://introtodeeplearning.com/) - Aulas de aprendizagem produnda do MIT;
-- [Tutorial ](https://blog.keras.io/building-autoencoders-in-keras.html) do blog Keras;
-
-Conteúdo:
-- Conceitos
-- Formulaçao matemática;
-- AutoEncoder com uma camada;
-- AutoEncoder esparso;
-- AutoEncoder profundo (deep) totalmente conectado;
-- AutoEncoder convolucional profundo;
-- AutoEncoder sequencia-para-sequencia;
-- AutoEncoder variacional;
+$$
+{f}({x},{u}) \approx \sum_{k=1}^p\theta_k({x},{u})\xi_k = {\Theta}({x},{u}){\xi}
+$$
 
 ---
+# Coleta de dados
 
+Amostras dos estados e entradas agrupados na forma:
 
+&lt;div class="math"&gt;
+\[
+{X} = \begin{bmatrix}
+| &amp; | &amp;   &amp; | \\
+{x}_1 &amp; {x}_2 &amp; \dotsi  &amp;  {x}_n \\
+|   &amp;  |   &amp;    &amp;  |
+\end{bmatrix}
+\qquad \qquad
+{U} = \begin{bmatrix}
+| &amp; | &amp;   &amp; |  \\
+{u}_1 &amp; {u}_2 &amp; \dotsi  &amp;  {u}_m \\
+|   &amp;  |   &amp;    &amp;  |
+\end{bmatrix}
+\]
+&lt;/div&gt;
 
+Dados das derivadas dos estados podem ser determinados numericamente:
+&lt;div class="math"&gt;
+\[
+  {\dot{X}} = \begin{bmatrix}
+| &amp; | &amp;   &amp; |  \\
+{\dot{x}}_1 &amp; {\dot{x}}_2 &amp; \dotsi  &amp;  {\dot{x}}_n \\
+|   &amp;  |   &amp;    &amp;  |
+\end{bmatrix}
+\]
+&lt;/div&gt;
+
+---
+# Biblioteca de termos candidatos
 
 
 
@@ -155,12 +104,8 @@ Conteúdo:
 ---
 class: title-slide-final, middle
 
+&lt;img src="img\logonegufpa.png" height="200px" width="150px" /&gt;
 
-![](img/logonegufpa.png =250x250)
-
-
-
----
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

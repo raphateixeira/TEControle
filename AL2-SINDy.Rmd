@@ -1,14 +1,13 @@
 ---
 title: "SINDy - Identificação esparsa de modelos não-lineares"
 subtitle: "Tópicos Especiais em Controle"
-institute: "UFPA - CAMTUC - FEE / UFPA - NDAE - PPCA"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
 author: "Prof. Dr. Raphael Teixeira"
-#date: "08/12/202"
-# Baseado no estilo Rutgers
+
 output:
   xaringan::moon_reader:
     # css: [default, metropolis, metropolis-fonts]
-    css: [default,ufpa-fontes.css, ufpa.css]
+    css: [default,\libs\ufpa-fontes.css, libs\ufpa.css]
     lib_dir: libs
     seal: true
     nature:
