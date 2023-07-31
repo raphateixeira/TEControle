@@ -20,16 +20,35 @@ output:
   
 ---
 
-# Engenharia de Controle: Fundamentos
+# Engenharia de controle guiada por dados
 
 
-# Identificação de sistemas:
+- Padrões em dados e redução de dimensionalidade (SVD);
+- Simulação de sistemas dinâmicos;
+- Identificação de sistemas dinâmicos;
+- Regressão e otimização;
+- Identificação LSQ;
+- Identificação SINDy;
+ 
 
-# Aprendizagem de Máquina
+---
+# Inteligência computacional
 
-# Aprendizagem Profunda
+- Aprendizagem de máquina
+- Redes neurais artificiais
+- Aprendizagem Profunda
+- Redes MLP 
+- Redes recorrentes LSTM
+- Redes convolucionais
+- Autoencoders
 
-# Sistemas de controle 
+---
+# Sintonia de controladores
+
+- Algoritmos genéticos;
+- Regressão simbólica - programação genética;
+- Controle preditivo;
+
 
 ---
 class: title-slide-final, middle
