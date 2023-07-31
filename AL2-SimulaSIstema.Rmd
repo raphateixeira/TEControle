@@ -1,7 +1,8 @@
 ---
 title: "Ferramentas e Pacotes Computacionais"
-subtitle: "Laboratório Virtual"
-institute: "UFPA - CAMTUC - FEE"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
+author: "Prof. Dr. Raphael Teixeira"
 
 output:
   xaringan::moon_reader:
