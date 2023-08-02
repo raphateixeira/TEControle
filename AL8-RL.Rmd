@@ -1,0 +1,58 @@
+---
+title: "Aprendizagem por Reforço"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
+author: "Prof. Dr. Raphael Teixeira"
+output:
+  xaringan::moon_reader:
+    # css: [default, metropolis, metropolis-fonts]
+    css: [default,ufpa-fontes.css, ufpa.css]
+    lib_dir: libs
+      
+    seal: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+  output_dir: auto  
+
+  
+---
+
+
+# Aprendizagem por reforço:
+
+
+
+<p align="center">
+  <img src="img/imgAutoencoder/EncoderDecoderConceito.png" width = 60%/>
+</p>
+
+---
+
+# Variáveis de interesse
+
+- Ação $u(t)$ - Todos os movimentos possíveis que o agente pode executar;
+- Estado $x(t)$ - Variáveis que representam a condição do sistema;
+- Recompensa $r(t)$ - Retorno imediato para avaliar a última ação;
+- Política $\pi()$ - Estratégia que o agente emprega para definir a próxima ação;
+- Valor $V(x)$ - Retorno esperado a longo prazo, com desconto, em oposição à recompensa de curto prazo;
+- Valor $Q(x,u)$ - Semelhante a $V$ considerando $u$;
+
+
+
+
+
+
+
+---
+class: title-slide-final, middle
+
+
+![](img/logonegufpa.png =250x250)
+
+
+
+---

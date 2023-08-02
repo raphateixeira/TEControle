@@ -6,9 +6,9 @@ author: "Prof. Dr. Raphael Teixeira"
 
 output:
   xaringan::moon_reader:
-    # css: [default, metropolis, metropolis-fonts]
-    css: [default,\libs\ufpa-fontes.css, libs\ufpa.css]
-    lib_dir: libs
+    css: [default, metropolis, metropolis-fonts]
+    css: [ufpa-fontes.css, ufpa.css]
+    output_dir: ..\Slides
     seal: true
     nature:
       #titleSlideClass: ["right", "top"]
@@ -90,7 +90,15 @@ Dados das derivadas dos estados podem ser determinados numericamente:
 ---
 # Biblioteca de termos candidatos
 
-
+<div class="math">
+\[
+  {\Theta{X}} = \begin{bmatrix}
+| & | &   & |  \\
+{\dot{x}}_1 & {\dot{x}}_2 & \dotsi  &  {\dot{x}}_n \\
+|   &  |   &    &  |
+\end{bmatrix}
+\]
+</div>
 
 
 ---

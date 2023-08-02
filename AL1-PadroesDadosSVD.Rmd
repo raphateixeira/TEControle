@@ -7,7 +7,7 @@ author: "Prof. Dr. Raphael Teixeira"
 output:
   xaringan::moon_reader:
     # css: [default, metropolis, metropolis-fonts]
-    css: [default,\libs\ufpa-fontes.css, libs\ufpa.css]
+    css: [default,ufpa-fontes.css, ufpa.css]
     lib_dir: libs
     seal: true
     nature:
@@ -20,13 +20,30 @@ output:
 
 ---
 
-# Informação em dados
+# Dados
 
+$$y = f(x)$$
 
+$$ 
+\begin{align}
+A = \begin{bmatrix}
+              a_{11} & a_{12} & \dots & a_{1n}\\
+              a_{21} & a_{22} & \dots & a_{2n}\\
+              \vdots & \vdots & \ddots & \vdots\\
+              a_{m1} & a_{m2} & \dots & a_{mn}
+            \end{bmatrix}
+\end{align}
+$$
 
 ---
 
 # Decomposição em valores singulares
+
+|     Identificação     | Inteligência                | Controle                |
+| :----------           | --------------------------  | ----------------------  |
+| SVD                   | Redes Neurais               | RST                     |
+| LSQ                   | SINDy                       |                         |
+
 
 ---
 class: title-slide-final, middle

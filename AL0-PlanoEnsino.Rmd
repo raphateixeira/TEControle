@@ -7,7 +7,7 @@ author: "Prof. Dr. Raphael Teixeira"
 output:
   xaringan::moon_reader:
     # css: [default, metropolis, metropolis-fonts]
-    css: [default,\libs\ufpa-fontes.css, libs\ufpa.css]
+    css: [default,ufpa-fontes.css, ufpa.css]
     lib_dir: libs
     seal: true
     nature:
