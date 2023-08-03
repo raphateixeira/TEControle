@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Aprendizagem por Reforço</title>
+    <title>Controle preditivo baseado em modelo</title>
     <meta charset="utf-8" />
     <meta name="author" content="Prof. Dr. Raphael Teixeira" />
-    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="AL5-MPC_files/header-attrs-2.21/header-attrs.js"></script>
     <link rel="stylesheet" href="ufpa-fontes.css" type="text/css" />
     <link rel="stylesheet" href="ufpa.css" type="text/css" />
   </head>
@@ -14,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Aprendizagem por Reforço
+# Controle preditivo baseado em modelo
 ]
 .subtitle[
 ## Tópicos Especiais em Controle
@@ -29,41 +28,47 @@ class: center, middle, inverse, title-slide
 ---
 
 
+# MPC
 
-# Aprendizagem por reforço:
+Técnica que determina a ação de controle pela minimização de 
+uma função objetivo a partir da predição de cenários finitos de simulação de um sistema dinâmico.
 
+- Sistemas lineares e não lineares;
+- Sistemas multivariáveis (MIMO);
+
+&lt;p align="center"&gt;
+  &lt;img src="img/imgMPC/DiagramaMPC.png" width = 60%/&gt;
+&lt;/p&gt;
+
+
+
+---
+
+# Projeto de MPC
 
 
 &lt;p align="center"&gt;
-  &lt;img src="img/imgRL/DiagramaRL.png" width = 60%/&gt;
+  &lt;img src="img/imgMPC/MPCProjeto.png" width = 80%/&gt;
 &lt;/p&gt;
 
----
+Planta linear, restrições lineares, função custo quadrática:
 
-# Variáveis de interesse
-
-- Ação `\(u(t)\)` - Todos os movimentos possíveis que o agente pode executar;
-- Estado `\(x(t)\)` - Variáveis que representam a condição do sistema;
-- Recompensa `\(r(t)\)` - Retorno imediato para avaliar a última ação;
-- Política `\(\pi()\)` - Estratégia que o agente emprega para definir a próxima ação;
-- Valor `\(V(x)\)` - Retorno esperado a longo prazo, com desconto, em oposição à recompensa de curto prazo;
-- Valor `\(Q(x,u)\)` - Semelhante a `\(V\)` considerando `\(u\)`;
-
-
-
-
+1. Definição do modelo do sistema;
+2. Definir sinais de entrada e saída;
+3. Criar objeto MPC;
+4. Simular malha fechada;
+5. Refinar o projeto;
+6. Acelerar execução;
+7. Implantar controlador;
 
 
 
 ---
+
 class: title-slide-final, middle
 
+&lt;img src="img\logonegufpa.png" height="200px" width="150px" /&gt;
 
-![](img/logonegufpa.png =250x250)
-
-
-
----
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

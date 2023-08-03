@@ -26,8 +26,11 @@ output:
 
 
 
+
+
+
 <p align="center">
-  <img src="img/imgAutoencoder/EncoderDecoderConceito.png" width = 60%/>
+  <img src="img/imgRL/DiagramaRL.png" width = 60%/>
 </p>
 
 ---

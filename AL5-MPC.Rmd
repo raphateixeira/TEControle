@@ -1,0 +1,61 @@
+---
+title: "Controle preditivo baseado em modelo"
+subtitle: "Tópicos Especiais em Controle"
+institute: "UFPA - (CAMTUC - FEE) - (NDAE - PPCA)"
+author: "Prof. Dr. Raphael Teixeira"
+
+output:
+  xaringan::moon_reader:
+    css: [ufpa-fontes.css, ufpa.css]
+    seal: true
+    nature:
+      #titleSlideClass: ["right", "top"]
+      highlightStyle: github
+      highlightLines: true
+      #highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:10"
+
+---
+
+# MPC
+
+Técnica que determina a ação de controle pela minimização de 
+uma função objetivo a partir da predição de cenários finitos de simulação de um sistema dinâmico.
+
+- Sistemas lineares e não lineares;
+- Sistemas multivariáveis (MIMO);
+
+<p align="center">
+  <img src="img/imgMPC/DiagramaMPC.png" width = 60%/>
+</p>
+
+
+
+---
+
+# Projeto de MPC
+
+
+<p align="center">
+  <img src="img/imgMPC/MPCProjeto.png" width = 80%/>
+</p>
+
+Planta linear, restrições lineares, função custo quadrática:
+
+1. Definição do modelo do sistema;
+2. Definir sinais de entrada e saída;
+3. Criar objeto MPC;
+4. Simular malha fechada;
+5. Refinar o projeto;
+6. Acelerar execução;
+7. Implantar controlador;
+
+
+
+---
+
+class: title-slide-final, middle
+
+<img src="img\logonegufpa.png" height="200px" width="150px" />
+
