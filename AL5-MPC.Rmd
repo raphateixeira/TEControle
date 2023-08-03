@@ -34,6 +34,145 @@ uma função objetivo a partir da predição de cenários finitos de simulação
 
 ---
 
+# MPC - Malha de controle
+
+<p align="center">
+  <img src="img/imgMPC/MalhaMPC3Otimizador.png" width = 80%/>
+</p>
+
+---
+
+
+
+# MPC - Conceitos
+
+- MPC;
+- Otimização;
+- Horizonte de predição;
+- Função custo;
+- Restrições;
+- Receding horizon;
+
+---
+
+# MPC
+
+<p align="center">
+  <img src="img/imgMPC/ExMPCCarro.png" width = 80%/>
+</p>
+
+---
+
+# MPC
+
+<p align="center">
+  <img src="img/imgMPC/ExMPCCarro.png" width = 60%/>
+</p>
+
+<p align="center">
+  <img src="img\imgMPC\ExPensandoTrajeorias.png" width = 50%/>
+</p>
+
+---
+
+# MPC - Sistemas multivariáveis
+
+<p align="center">
+  <img src="img/imgMPC/malhaMIMO.png" width = 60%/>
+</p>
+
+<p align="center">
+  <img src="img\imgMPC\MPC-MIMO.png" width = 60%/>
+</p>
+
+---
+
+# MPC - Restrições e antecipação
+
+<p align="center">
+  <img src="img/imgMPC/MPCrestricoesCarro.png" width = 80%/>
+</p>
+
+<p align="center">
+  <img src="img/imgMPC/MPCAntecipatorio.png" width = 60%/>
+</p>
+
+
+---
+
+# MPC - Processamento e Memória
+
+<p align="center">
+  <img src="img/imgMPC/MPCProcessamento.png" width = 60%/>
+</p>
+
+---
+class: center,  middle, inverse
+
+# MPC: Como funciona?
+
+
+---
+
+# MPC
+
+<p align="center">
+  <img src="img/imgMPC/ExMPCMalha.png" width = 90%/>
+</p>
+
+---
+
+# MPC - Predição
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle1.png" width = 92%/>
+</p>
+
+---
+
+# MPC - Várias Predições
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle2.png" width = 92%/>
+</p>
+
+---
+
+# MPC - Otimização - Função custo
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle3.png" width = 92%/>
+</p>
+
+---
+
+# MPC - Avaliando o custo
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle4.png" width = 92%/>
+</p>
+
+---
+
+# MPC - Ação de controle
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle5.png" width = 92%/>
+</p>
+
+---
+
+# MPC - Horizonte de eventos
+
+<p align="center">
+  <img src="img\imgMPC\MPCControle6.png" width = 92%/>
+</p>
+
+
+
+
+---
+
 # Projeto de MPC
 
 
@@ -56,6 +195,7 @@ Planta linear, restrições lineares, função custo quadrática:
 # Pacotes MPC - python
 
 - [OSQP](https://osqp.org/) 
+- [GEKKO](https://machinelearning.byu.edu/)
 
 
 
