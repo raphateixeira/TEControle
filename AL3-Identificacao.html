@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Auto-Encoders</title>
+    <title>Ferramentas e Pacotes Computacionais</title>
     <meta charset="utf-8" />
     <meta name="author" content="Prof. Dr. Raphael Teixeira" />
     <script src="libs/header-attrs-2.21/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Auto-Encoders
+# Ferramentas e Pacotes Computacionais
 ]
 .subtitle[
 ## Tópicos Especiais em Controle
@@ -29,136 +29,173 @@ class: center, middle, inverse, title-slide
 ---
 
 
+# Programação e IDE 
 
-# AutoEncoder - Conceito 1:
+Algumas anotações aqui sobre nossa abordagem e ferramentas.
 
-Aprendizagem não-supervisionada para redução não-linear de dimensionalidade;
+Para iniciar temos um bom concenso, vamos de
 
-- AutoEncoder generaliza SVD (linear);
+  &lt;img src="https://www.python.org/static/img/python-logo@2x.png" alt="drawing" width="300"/&gt;
 
-&lt;p align="center"&gt;
-  &lt;img src="img/imgAutoencoder/EncoderDecoderConceito.png" width = 60%/&gt;
-&lt;/p&gt;
+Com python podemos simular nossos sistemas, fazer animações, sites e até mesmo interface gráfica. Basta escolher o pacote certo. Ao final teremos um arquivo *.py* ou um *.ipynb*. É desejável que você conheça a diferença.
 
-Encoder e decoder: Mapeamentos _não-lineares_ (RNA):
+  
+  Como IDE de programação gosto do VsCode, mas isso é uma questão pessoal mesmo, alguns preferem Anaconda, Pytorch, Bloco de notas, ...
+  
+  &lt;img src="https://www.shanebart.com/wp-content/uploads/2019/05/5k4h36j3h4j.png" alt="drawing" width="300"/&gt;
 
- - `\(\mathbf{x}_i \in \mathbb{R}^n\)` - Dados do espaço de entrada `\(\mathbf{X}\)` (alta dimensão);
- - `\(\mathbf{z}_i \in \mathbb{R}^r\)` - Dados do _espaço latente_  `\(\mathbf{Z}\)` (baixa dimensão);
- - `\(\hat{\mathbf{x}}_i \in \mathbb{R}^n\)` - Dados do espaço de saída `\(\hat{\mathbf{X}}\)` (alta dimensão);
-
-
-
----
-# AutoEncoder: Fundamentação matemática
-
-$$ \mathbf{Z} = \varphi(\mathbf{X})\hspace{2cm} \hat{\mathbf{X}} = \psi(\mathbf{Z}) $$
-
-&lt;p align="center"&gt;
-  &lt;img src="img/imgAutoencoder/AutoEncoderBrunton.png" width = 45%/&gt;
-&lt;/p&gt;
-
-
-$$ f_{\theta}(\mathbf{x}) = \psi(\varphi(x)) = (\psi\circ\varphi)x$$
-
-`$$\mathrm{arg_{\theta}min} \;\;\lVert\mathbf{X} - \hat{\mathbf{X}}\rVert_2 = \mathrm{arg_{\theta}min} \;\;\lVert\mathbf{X} - f_{\theta}(\mathbf{X})\rVert_2$$`
-
-`$$\mathrm{arg_{\theta}min} \;\;||\mathbf{X} - (\psi\circ\varphi)x||_2$$`
+  A regra aqui é: Instale python, depois instale sua IDE e tente um *hello world* para começar.
 
 ---
 
-# AutoEncoder - Camada Única
+# Massa mola amortecedor
 
-Codigo Keras:
+Faremos a simulação de um sistema conhecido por todos, o massa mola amortecedor:
+
+&lt;img src="img/mma.png" width="250" /&gt;
+
+Você deve saber como chegar na EDO:
+
+$$ m\frac{d^2y(t)}{dt^2} + b\frac{dy(t)}{dt} + ky(t) = u(t)$$
+
+E a partir dela na função de transferência:
+
+$$ G(s) = \frac{1}{ms^2 + bs + c} $$
+
+---
+
+# Massa mola amortecedor
+
+A terceira e última forma de interesse é a representação em espaço de estados.
+
+Basicamente, fazendo `\(x_1(t) = y(t)\)` e `\(x_2(t) = y'(t)\)` pode-se escrever uma 
+equação de primeira ordem para cada variável.
+
+$$
+`\begin{align}
+\dot{x}_1 &amp;= f_1(x,u) = x_2\\
+\dot{x}_2 &amp;= f_2(x,u) = -\frac{k}{m}x_1 -\frac{b}{m}x_2 + \frac{1}{m}u
+\end{align}`
+$$
+
+Como  o sistema é LIT, pode-se escrever a forma vetorial-matricial.
+$$
+`\begin{bmatrix}
+  \dot{x}_1 \\
+  \dot{x}_2
+\end{bmatrix}`
+=
+`\begin{bmatrix}
+  0 &amp; 1 \\
+  -k/m &amp; -b/m
+\end{bmatrix}`
+`\begin{bmatrix}
+  {x}_1 \\
+  {x}_2
+\end{bmatrix}`
++
+`\begin{bmatrix}
+  0 \\
+  1/m
+\end{bmatrix}`
+u(t)
+$$
+
+Ou simplesmente:
+
+$$ \dot{x} = Ax + Bu $$
+
+
+---
+# Simulação do MMA em python
+
+Vamos a simulação do massa mola amortecedor, ela seguirá os seguintes passos:
+
+- Importação de bibliotecas python;
+
+- Parâmetros do sistema e declaração do modelo;
+
+- Simulação (integração) do modelo dinâmico;
+
+- Apresentação gráfica dos resultados.
+
+---
+
+# Importando bibliotecas python:
+
+Penso que todos estejam falimiariados em como carregar as bibliotecas e funções necessárias:
+
+```python
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+```
+
+## Parâmetros do sistema:
+
+No caso de simulação de um sistema dinâmico qualquer, 
+pode-se iniciar com a declaração dos seus parâmetros.
+
+Para o MMA tem-se então:
+
 
 
 ```python
-import keras
-from keras import layers
-
-x_dim = 784 # Dimensão da entrada (x)
-z_dim = 32  # Dimensão da representação (z)
-
-# Camada de entrada:
-x = keras.Input(shape=(x_dim,))
-
-# Rede Encoder:
-z = layers.Dense(z_dim, activation='relu')(x)
-
-# Rede Decoder:
-y = layers.Dense(x_dim, activation='sigmoid')(z)
+m = 1.0 # Massa;
+b = 0.8 # Coeficiente de amortecimento;
+k = 1.2 # Constante elástica da mola;
 ```
 
-
 ---
+.
+--- 
 
-# Modelos Encoder e Decoder
-
-Modelo do autoencoder: `\((\psi\circ\varphi)(\mathbf{x})\)` - - Mapeia a entrada para a sua reconstrução:
+# O modelo dinâmico
 
 
 ```python
-AutoEncoder = keras.Model(x, y)
+def MMA(x,t):                           # Define o nome da função que modela o sistema;
+  x1, x2 = x                            # Variáveis de estado a partir do vetor de estados;
+  dx1 = x2                              # Função de estado dx1 = f(x,u)
+  dx2 = -(k/m)*x1 - (b/m)*x2 +(1/m)*0   # Função de estado dx2 = f(x,u)
+    
+  dx = np.array([dx1, dx2])               # Derivada do vetor de estados
+    
+  return dx                             # Retorna a derivada do vetor de estados
 ```
 
-Modelo do Encoder: `\(\mathbf{z} = \varphi(\mathbf{x})\)`
+---
+
+# Integração numérica modelo dinâmico:
 
 ```python
-Encoder = keras.Model(x, z)
-```
+T = 100                       # Tempo total de simulação
+Ts = 0.1                      # Período de amostragem (passo de integração)
+t = Ts*np.arange(0,T+Ts, Ts)
+x0 = [0.1, -0.5]
 
-Modelo do Decoder: `\(y = \hat{\mathbf{x}} = \varphi(\mathbf{x})\)`
-
-```python
-# Entrada com dimensão r
-z = keras.Input(shape=(r,))
-# Última camada do modelo AutoEncoder
-decoder_layer = AutoEncoder.layers[-1]
-# Cria modelo decoder
-Decoder = keras.Model(encoded_input, decoder_layer(encoded_input))
+# Integração numérica: odeint integra a função MMA 
+# com condição inicial x0 durante o tempo t.
+x = odeint(MMA, x0, t)
 ```
 
 ---
 
-# Configura modelo AutoEncoder:
+# Resultado gráfico
 
 
 ```python
-autoencoder.compile(optimizer = 'adam', 
-                         loss = 'binary_crossentropy')
+plt.figure(figsize = (10,4))
+plt.subplot(211)
+plt.plot(t,x[:,0])
+plt.grid()
+plt.subplot(212)
+plt.plot(t,x[:,1])
+plt.grid()
+plt.show()
 ```
----
-# Notas AutoEncoders
 
-Fontes:
-- Brunton - Data-Driven Science and Engineeging;
-- [IntroDeepLearning](http://introtodeeplearning.com/) - Aulas de aprendizagem produnda do MIT;
-- [Tutorial ](https://blog.keras.io/building-autoencoders-in-keras.html) do blog Keras;
-
-Conteúdo:
-- Conceitos
-- Formulaçao matemática;
-- AutoEncoder com uma camada;
-- AutoEncoder esparso;
-- AutoEncoder profundo (deep) totalmente conectado;
-- AutoEncoder convolucional profundo;
-- AutoEncoder sequencia-para-sequencia;
-- AutoEncoder variacional;
-
----
-
-
-
-
-
-
-
----
-class: title-slide-final, middle
-
-
-![](img/logonegufpa.png =250x250)
-
-
+&lt;img src="AL3-Identificacao_files/figure-html/unnamed-chunk-5-1.png" width="960" /&gt;
 
 ---
     </textarea>

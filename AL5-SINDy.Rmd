@@ -6,7 +6,6 @@ author: "Prof. Dr. Raphael Teixeira"
 
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
     css: [ufpa-fontes.css, ufpa.css]
     output_dir: ..\Slides
     seal: true
