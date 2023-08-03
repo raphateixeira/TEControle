@@ -51,6 +51,12 @@ Planta linear, restrições lineares, função custo quadrática:
 6. Acelerar execução;
 7. Implantar controlador;
 
+---
+
+# Pacotes MPC - python
+
+- [OSQP](https://osqp.org/) 
+
 
 
 ---
