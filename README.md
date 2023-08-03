@@ -30,7 +30,7 @@ Repositório de conteúdo das atividades da disciplina de tópicos especiais em 
 -- Autoencoders;
 -- SINDy-Autoencoder;
 
-4 - [Controle Preditivo](AL8-MPC.html)
+4 - [Controle Preditivo](AL5-MPC.html)
 
 4 - [Aprendizagem por reforço](AL8-RL.html)
 - 
