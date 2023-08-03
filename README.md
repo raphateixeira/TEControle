@@ -8,27 +8,22 @@ Repositório de conteúdo das atividades da disciplina de tópicos especiais em 
 - 1 - [DadosSVD](AL1-PadroesDadosSVD.html)
   
 - 2 - [SimulaSistema](AL2-SimulaSIstema.html)
-  
-- 3 - [SINDy](AL5-SINDy.html)
-  
-- 4 - [Autoencoder](AL8-AutoEncoder.html)
-  
-- 1.2 Identificação de sistemas;
-- 1.3 Regressão e otimização;
-- 1.4 Identificação LSQ;
 
-2 - Projeto de controladores:
--- 2.1 Controladores PID;
--- 2.2 Controladores RST;
--- 2.2 Controladores Polinomiais;
+- 3 - [Regressão]()
 
+- 4 - [Otimização]()
+
+- 5 - [Identificação LSQ]();
+  
+- 6 - [Identificação SINDy](AL5-SINDy.html)
+  
 3 - Sistemas inteligentes;
--- Algoritmos genéticos;
--- Redes neurais artificiais;
--- Redes LSTM;
--- Redes Convolucionais;
--- Autoencoders;
--- SINDy-Autoencoder;
+- Algoritmos genéticos;
+- Redes neurais artificiais;
+- Redes LSTM;
+- Redes Convolucionais;
+- [Autoencoder](AL8-AutoEncoder.html)
+- SINDy-Autoencoder;
 
 4 - [Controle Preditivo](AL5-MPC.html)
 

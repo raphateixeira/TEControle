@@ -29,11 +29,8 @@ $$ \dot{x} = f(x,u) $$
 - $u \in \mathbb{R}^m$ Vetor de entradas;
 - $f(\cdot)$ Vetor de funções que definem a dinâmica dos estados;
 
-
  - Modelos não-lineares;
  - Sistemas multientrada;
-
-
 
 ---
 
