@@ -1,0 +1,152 @@
+---
+title: "Classificação"
+subtitle: "Tópicos Especiais em Controle"
+author: "Prof. Dr. Raphael Teixeira"
+institute: "Universidade Federal do Pará"
+date: "Dezembro, 2025"
+format: revealjs
+---
+
+## 🧭 Roteiro
+
+1.  Introdução: **Aprendizagem Supervisionada**
+2.  **Modelos Discriminantes** vs. Generativos
+3.  Principais Algoritmos Discriminantes
+4.  Aplicações em Sistemas de Controle
+5.  Métricas de Desempenho
+
+---
+
+### O Problema de Classificação
+
+O objetivo é aprender um mapeamento ($f$) de um conjunto de atributos de entrada $\bm{x}$ para um rótulo de saída discreto $y$.
+
+$$y = f(\mathbf{x})$$
+
+* **Entrada ($\mathbf{x}$):** Vetor de características.
+* **Saída ($y$):** Categoria ou Classe.
+
+---
+
+### Aprendizagem Supervisionada
+
+A classificação é um exemplo de Aprendizagem Supervisionada, onde o modelo é treinado usando um conjunto de dados com **rótulos conhecidos**.
+
+---
+
+## 2. Modelos Discriminantes
+
+### O que são Modelos Discriminantes?
+
+Modelos discriminantes tentam diretamente aprender a **fronteira de decisão** (a superfície de separação) entre as classes no espaço de atributos.
+
+Eles calculam a **probabilidade condicional** $P(y|\mathbf{x})$, ou seja, a probabilidade da classe $y$ ser a correta, dado o vetor de entrada $\mathbf{x}$.
+
+> **Foco:** Como as classes são **separadas**.
+
+### Discriminante vs. Generativo
+
+| Característica | **Modelo Discriminante** | Modelo Generativo |
+| :--- | :--- | :--- |
+| **O que modela?** | $P(\text{Classe} \mid \text{Entrada})$ | $P(\text{Entrada} \mid \text{Classe})$ e $P(\text{Classe})$ |
+| **Exemplo Chave** | Regressão Logística, SVM | Naive Bayes, GMM |
+| **Vantagem** | Geralmente mais rápido e performático para a tarefa de classificação. | Pode gerar novos dados sintéticos. |
+
+---
+
+## 3. Principais Algoritmos Discriminantes
+
+### A. Regressão Logística (Logistic Regression)
+
+* Apesar do nome, é um modelo de **classificação** para problemas binários (0 ou 1).
+* Usa a **função Sigmoide** para mapear o resultado linear para uma probabilidade entre 0 e 1.
+
+$$\text{Sigmoide}(z) = \frac{1}{1 + e^{-z}}$$
+
+* A fronteira de decisão é **linear**.
+
+---
+
+## B. Máquinas de Vetores de Suporte (SVM)
+
+* Busca o **hiperplano** que maximiza a margem entre as classes.
+* Os pontos de dados mais próximos ao hiperplano são chamados de **Vetores de Suporte**.
+* **Kernel Trick:** Permite que o SVM mapeie dados não-lineares para um espaço de maior dimensão, onde a separação se torna linear.
+
+
+
+---
+
+## C. Árvores de Decisão (Decision Trees)
+
+* Estrutura hierárquica (tipo fluxograma) que particiona o espaço de atributos.
+* **Nós:** Testes em um atributo.
+* **Ramos:** Resultados do teste.
+* **Folhas:** Representam as classes finais.
+* O critério de divisão é frequentemente baseado na **Entropia** ou **Índice Gini**.
+
+### D. Ensembles (Random Forest / Gradient Boosting)
+
+* Combina a saída de **múltiplas árvores de decisão** (ou outros classificadores) para melhorar a precisão e a robustez.
+* São modelos discriminantes de alto desempenho.
+
+---
+
+## 4. Aplicações em Sistemas de Controle
+
+A classificação é crucial em aplicações de controle inteligente:
+
+### 1. Diagnóstico de Falhas (Fault Diagnosis)
+* **Entrada ($\mathbf{x}$):** Sinais de vibração ou temperatura do equipamento.
+* **Saída ($y$):** Normal, Falha Tipo A, Falha Tipo B.
+* *Uso:* Manutenção Preditiva.
+
+### 2. Reconhecimento de Modo de Operação
+* **Entrada ($\mathbf{x}$):** Setpoints e estados atuais do processo.
+* **Saída ($y$):** Modo de Carga Alta, Modo de Espera, Modo de Transição.
+* *Uso:* Seleção de controladores ou agendamento de tarefas.
+
+### 3. Classificação de Dados de Sensores
+* **Entrada ($\mathbf{x}$):** Leituras de sensores para Controle Robusto.
+* **Saída ($y$):** Anomalia de sensor, Leitura Válida.
+
+---
+
+## 5. Métricas de Desempenho
+
+É fundamental avaliar o quão bem o modelo discriminante está performando:
+
+### A. Matriz de Confusão
+* Organiza os resultados em:
+    * **Verdadeiro Positivo (VP):** Acerto da classe positiva.
+    * **Falso Positivo (FP):** Erro tipo I (alarme falso).
+    * **Falso Negativo (FN):** Erro tipo II (falha não detectada).
+    * **Verdadeiro Negativo (VN):** Acerto da classe negativa.
+
+### B. Métricas Derivadas
+
+* **Acurácia (Accuracy):** Proporção de acertos totais.
+    $$\text{Acurácia} = \frac{VP + VN}{VP + VN + FP + FN}$$
+* **Precisão (Precision):** Dos que o modelo classificou como positivos, quantos estavam corretos.
+* **Recall (Sensibilidade):** Dos que eram realmente positivos, quantos o modelo detectou.
+
+---
+
+## 📝 Conclusão e Próximos Passos
+
+A classificação, especialmente via modelos discriminantes, é uma ferramenta poderosa para adicionar **inteligência de decisão** a sistemas de controle complexos.
+
+**Próximo Tópico:** Exploraremos a **Regressão** e sua aplicação na Modelagem Preditiva de Processos.
+
+Fiquem à vontade para perguntas.
+
+
+## 📝 Conclusão e Próximos Passos
+
+A classificação, especialmente via modelos discriminantes, é uma ferramenta poderosa para adicionar **inteligência de decisão** a sistemas de controle complexos.
+
+**Próximo Tópico:** Exploraremos a **Regressão** e sua aplicação na Modelagem Preditiva de Processos.
+
+---
+
+[⬅️ **Retornar ao Índice Principal da Disciplina**](../index.qmd)

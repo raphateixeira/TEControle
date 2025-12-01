@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs
+  # GARANTE QUE OS ARQUIVOS SEJAM RENDERIZADOS
+  render: 
+    - index.qmd
+    - classificacao/*.qmd
+
+website:
+  title: "Tópicos Especiais em Controle - UFPA"
+  navbar:
+    title: "TE em Controle"
+    left:
+      - href: index.qmd
+        text: Início
+      # Link direto para a primeira apresentação
+      - href: classificacao/classificacao.qmd
+        text: Classificação
+
+# 1. FORMATO PADRÃO DO SITE (HTML)
+format:
+  html:
+    theme: [default, templateUFPAPresent.scss]
+    toc: true 
+    css: templateUFPAPresent.scss
+
+# 2. FORMATOS ESPECÍFICOS (SLIDES - Reveljs)
+execute:
+  freeze: auto
+
+formats:
+  - revealjs:
+      include: "classificacao/*.qmd" 
+      theme: [default, templateUFPAPresent.scss]
+      slide-number: true
+      logo: images/ufpa-logo-mini.png
+      # LINK DE RODAPÉ (FOOTER) PARA RETORNAR À PÁGINA PRINCIPAL
+      footer: |
+        [⬅️ Voltar ao Índice Principal](../index.qmd)

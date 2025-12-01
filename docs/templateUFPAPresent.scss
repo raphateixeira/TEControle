@@ -1,0 +1,62 @@
+/*-- scss:rules --*/
+
+// Paleta de Cores UFPA
+$blue-ufpa: #002C6F;
+$red-ufpa: #E4002B;
+$yellow-ufpa: #FFD700;
+$black-ufpa: #231F20;
+$white: #FFFFFF;
+
+// Configuração do Tema Bootstrap (Geral, aplicável ao site/barra lateral)
+$primary: $blue-ufpa;     
+$secondary: $red-ufpa;    
+$navbar-dark-bg: $blue-ufpa; 
+$navbar-dark-color: $white; 
+$body-bg: $white; 
+
+// Cores Específicas para Componentes do Quarto
+$body-color: $black-ufpa; 
+$link-color: $blue-ufpa;  
+$code-bg: lighten($black-ufpa, 70%); 
+$code-color: $black-ufpa; 
+
+// Customizações Adicionais para o SITE (fora das slides)
+h1, h2, h3, h4, h5, h6 {
+  color: $black-ufpa !important; 
+}
+
+.sidebar-item.active > a {
+  background-color: lighten($blue-ufpa, 50%);
+  color: $blue-ufpa !important; 
+  font-weight: bold;
+}
+
+// ----------------------------------------------------
+// Customizações ESPECÍFICAS para as SLIDES (Reveal.js)
+// ----------------------------------------------------
+
+// Cor do texto das slides
+.reveal {
+  color: $black-ufpa;
+}
+
+// Cor dos títulos nas slides
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  color: $blue-ufpa !important; 
+}
+
+// Cor dos links nas slides
+.reveal a {
+  color: $red-ufpa; // Usando $secondary para links internos
+}
+
+// Cor de fundo do slide de título (opcional)
+.reveal .slide:first-child {
+  background-color: $blue-ufpa;
+  color: $white;
+}
+
+.reveal .slide:first-child h1, 
+.reveal .slide:first-child h2 {
+  color: $white !important;
+}
