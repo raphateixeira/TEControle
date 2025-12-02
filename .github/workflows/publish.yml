@@ -1,59 +1,42 @@
-name: Publicar Projeto Quarto no GitHub Pages
+name: Render & Publish Quarto Site
 
 on:
-  # Roda este workflow sempre que houver um push para a branch principal (main)
   push:
-    branches: [ main ]
-  # Permite rodar o workflow manualmente pela interface do GitHub Actions
-  workflow_dispatch:
-
-# Permissões necessárias para que o GitHub Pages possa ser atualizado
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: main # Ou 'master', dependendo do seu branch principal
 
 jobs:
-  build-quarto:
+  build-and-publish:
     runs-on: ubuntu-latest
-    env:
-      # Define o diretório de saída que o Quarto usará (_site é o padrão)
-      QUARTO_OUTPUT_DIR: _site
-      
+    permissions:
+      contents: write # Permissão necessária para fazer o deploy no gh-pages
+      pages: write
+      id-token: write
+
     steps:
-      # 1. FAZ O CHECKOUT DO REPOSITÓRIO
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # 2. CONFIGURA O AMBIENTE QUARTO
-      # Esta ação instala o Quarto e todas as suas dependências internas.
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-action@v1
         with:
-          version: 'latest'
-          # Aqui você pode especificar 'r' ou 'python' se for usar código nessas linguagens
-          # Não incluímos 'python-dependencies' aqui para evitar o erro do requirements.txt
-          
-      # 3. RENDERIZA O PROJETO
-      # O Quarto renderiza o projeto completo e cria a pasta _site.
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-action/render@v1
+          fetch-depth: 0 # Necessário para o Quarto/Git
 
-      # --- Publicação no GitHub Pages ---
-      
-      # 4. CONFIGURA O AMBIENTE DO GH PAGES
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Instalar Quarto
+        # 🟢 CORREÇÃO CRÍTICA: Use a sintaxe correta para setup
+        uses: quarto-dev/quarto-actions/setup@v2 
 
-      # 5. UPLOAD DO ARTEFATO (A PASTA _site)
-      - name: Upload artifact
+      - name: Instalar dependências (Se usar R ou Python)
+        # Se você usar R/Python, adicione a ação de setup correspondente aqui.
+        # Exemplo para R:
+        # uses: r-lib/actions/setup-r@v2 
+        # Exemplo para Python:
+        # uses: actions/setup-python@v5 
+
+      - name: Renderizar o Projeto Quarto
+        run: quarto render
+
+      - name: Configurar Publicação
         uses: actions/upload-pages-artifact@v3
         with:
-          # O caminho deve ser a pasta de saída do Quarto (definida acima)
-          path: ${{ env.QUARTO_OUTPUT_DIR }} 
+          path: _site # O caminho do seu diretório de saída
 
-      # 6. DEPLOY NO GH PAGES
-      # O deploy só é executado se os passos anteriores forem bem-sucedidos.
-      - name: Deploy to GitHub Pages
+      - name: Publicar no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
