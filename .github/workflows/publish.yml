@@ -1,37 +1,59 @@
-name: Publicar Quarto para GitHub Pages
+name: Publicar Projeto Quarto no GitHub Pages
 
 on:
+  # Roda este workflow sempre que houver um push para a branch principal (main)
   push:
-    branches:
-      - main # O branch principal do seu repositório
+    branches: [ main ]
+  # Permite rodar o workflow manualmente pela interface do GitHub Actions
   workflow_dispatch:
 
+# Permissões necessárias para que o GitHub Pages possa ser atualizado
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build-quarto:
     runs-on: ubuntu-latest
+    env:
+      # Define o diretório de saída que o Quarto usará (_site é o padrão)
+      QUARTO_OUTPUT_DIR: _site
+      
     steps:
+      # 1. FAZ O CHECKOUT DO REPOSITÓRIO
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Instalar Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      # 2. CONFIGURA O AMBIENTE QUARTO
+      # Esta ação instala o Quarto e todas as suas dependências internas.
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-action@v1
+        with:
+          version: 'latest'
+          # Aqui você pode especificar 'r' ou 'python' se for usar código nessas linguagens
+          # Não incluímos 'python-dependencies' aqui para evitar o erro do requirements.txt
+          
+      # 3. RENDERIZA O PROJETO
+      # O Quarto renderiza o projeto completo e cria a pasta _site.
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-action/render@v1
 
-      - name: Renderizar Quarto
-        run: quarto render
-
-      - name: Configurar GitHub Pages
+      # --- Publicação no GitHub Pages ---
+      
+      # 4. CONFIGURA O AMBIENTE DO GH PAGES
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload dos artefatos
+      # 5. UPLOAD DO ARTEFATO (A PASTA _site)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs' # Deve corresponder ao 'output-dir' no _quarto.yml
+          # O caminho deve ser a pasta de saída do Quarto (definida acima)
+          path: ${{ env.QUARTO_OUTPUT_DIR }} 
 
-      - name: Deploy para GitHub Pages
+      # 6. DEPLOY NO GH PAGES
+      # O deploy só é executado se os passos anteriores forem bem-sucedidos.
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,2 +1,4 @@
-# TEControleAM
-Disciplina de Tópicos Especiais em Controle e Aprendizagem de Máquina
+# Tópicos Especiais em Controle
+
+
+- [Classificação]('Apresentacao/Classificacao.qmd)

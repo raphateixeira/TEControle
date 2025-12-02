@@ -1,9 +1,7 @@
 ---
 title: "Tópicos Especiais em Controle"
+subtitle: "Templates"
 ---
-Acesse apresentações e códigos da disciplina:
 
-## 🧭 Apresentações:
 
-* [**Classificação**](Classificacao/classificacao.qmd);
-
+- [Classificação](\Apresentacao\Classificacao.qmd)
