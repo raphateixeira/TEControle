@@ -2,7 +2,7 @@
 title: "Classificação em Machine Learning: Fundamentos e Métodos"
 subtitle: "Uma Abordagem Prática para Categorização de Dados"
 author: "Raphael Teixeira"
-date: "Tópicos Especiais em Controle"
+date: ""
 format: 
   revealjs:
     theme: [default, ../TemaRTx.scss] # Seu tema SCSS
