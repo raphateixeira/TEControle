@@ -2,33 +2,38 @@ name: Render & Publish Quarto Site
 
 on:
   push:
-    branches: main # Ou 'master', dependendo do seu branch principal
+    branches: main 
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Permissão necessária para fazer o deploy no gh-pages
+      contents: write 
       pages: write
       id-token: write
+
+    # 🟢 CORREÇÃO CRÍTICA: Adicione o bloco 'environment' aqui!
+    environment:
+      name: github-pages # O nome padrão e obrigatório para o Pages
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Necessário para o Quarto/Git
+          fetch-depth: 0 
 
       - name: Instalar Quarto
-        # 🟢 CORREÇÃO CRÍTICA: Use a sintaxe correta para setup
         uses: quarto-dev/quarto-actions/setup@v2 
 
+      # ... (Outras etapas de instalação de dependências, se houver) ...
+      
       - name: Renderizar o Projeto Quarto
         run: quarto render
 
-      - name: Configurar Publicação
+      - name: Configurar Publicação (Artifact)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site # O caminho do seu diretório de saída
+          path: _site 
 
       - name: Publicar no GitHub Pages
         id: deployment
