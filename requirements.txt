@@ -3,3 +3,6 @@ pandas
 numpy
 jupyterlab
 jupyter_client
+matplotlib
+seaborn
+scikit-learn

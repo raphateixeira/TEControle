@@ -28,16 +28,6 @@ h1, h2, h3, h4, h5, h6 {
     color: $black-ufpa !important; 
 }
 
-// 1. Título da Capa da Apresentação (field 'title:' no YAML)
-.title {
-  font-size: 2.5em !important;
-  line-height: 2.0;
-}
-
-// 2. Títulos de slides internos (Cabeçalho #)
-.reveal h1 {
-  font-size: 1.5em !important; 
-}
 
 // --- Customização da Barra Lateral do Site ---
 
