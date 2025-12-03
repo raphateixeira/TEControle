@@ -11,23 +11,34 @@ jobs:
       contents: write 
       pages: write
       id-token: write
-
-    # 🟢 CORREÇÃO CRÍTICA: Adicione o bloco 'environment' aqui!
     environment:
-      name: github-pages # O nome padrão e obrigatório para o Pages
+      name: github-pages
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
-
+          
+      # 🟢 PASSO 1 CRÍTICO: Configurar o Python
+      - name: Configurar ambiente Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Use a versão estável mais recente
+          
+      # 🟢 PASSO 2 CRÍTICO: Instalar as dependências necessárias
+      # Inclui jupyter, nbformat e os pacotes do seu código (matplotlib, sklearn)
+      - name: Instalar dependências Python
+        run: |
+          pip install jupyter nbformat matplotlib scikit-learn
+          # Se você tem um requirements.txt completo, pode usar apenas:
+          # pip install -r requirements.txt
+        
       - name: Instalar Quarto
         uses: quarto-dev/quarto-actions/setup@v2 
 
-      # ... (Outras etapas de instalação de dependências, se houver) ...
-      
       - name: Renderizar o Projeto Quarto
+        # Esta etapa agora deve funcionar porque o kernel Jupyter está pronto
         run: quarto render
 
       - name: Configurar Publicação (Artifact)
