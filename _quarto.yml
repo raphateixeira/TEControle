@@ -13,10 +13,38 @@ website:
     contents:
       - index.qmd # Página inicial
       - section: "Aulas"
-        contents: 
+        contents:
           # Lista de apresentações:
           - Apresentacao/Classificacao.qmd
           # - Apresentacao/Present02.qmd
+      - section: "Notas Rápidas"
+        contents:
+          - NotasRapidas/index.qmd
+          - section: "Controle Clássico"
+            contents:
+              - NotasRapidas/01-PID-LGR.qmd
+              - NotasRapidas/02-PID-Bode.qmd
+              # - NotasRapidas/03-PI-Corrente-Inversores.qmd
+              # - NotasRapidas/04-AntiWindup.qmd
+          # - section: "Controle + IA/Dados"
+          #   contents:
+          #     - NotasRapidas/05-LSTM-MPC.qmd
+          #     - NotasRapidas/06-RL-Controlador.qmd
+          #     - NotasRapidas/07-PINNs.qmd
+          #     - NotasRapidas/08-SINDy.qmd
+          #     - NotasRapidas/09-Koopman.qmd
+          # - section: "Eletrônica de Potência"
+          #   contents:
+          #     - NotasRapidas/10-Inversor-SPWM-FCSMPC.qmd
+          #     - NotasRapidas/11-Inversor-Trifasico-FOC-FCSMPC.qmd
+          #     - NotasRapidas/12-Lyapunov-FCSMPC.qmd
+          # - section: "Sistemas Híbridos / Complementares"
+          #   contents:
+          #     - NotasRapidas/13-EMS-PV-Bateria.qmd
+          #     - NotasRapidas/14-MRT-SWER-Amazonia.qmd
+          #     - NotasRapidas/15-DeePC.qmd
+          #     - NotasRapidas/16-Discretizacao-ZOH-Tustin.qmd
+          #     - NotasRapidas/17-Luenberger-Kalman.qmd
 
 # --------------------------
 # Opções de Estilo e Formato

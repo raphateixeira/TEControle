@@ -1,0 +1,6 @@
+---
+title: "Notas Rápidas"
+subtitle: "Tópicos Especiais em Controle"
+---
+
+Notas curtas — contexto, formulação matemática essencial, 1-2 figuras e referências — sobre tópicos de controle clássico, controle orientado a dados/IA, eletrônica de potência e sistemas híbridos. Organizadas em 4 blocos, listados na barra lateral.
