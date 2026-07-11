@@ -2,50 +2,15 @@ name: Render & Publish Quarto Site
 
 on:
   push:
-    branches: main 
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  build-and-publish:
-    runs-on: ubuntu-latest
+  build-deploy:
     permissions:
-      contents: write 
+      contents: read
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 
-          
-      # 🟢 PASSO 1 CRÍTICO: Configurar o Python
-      - name: Configurar ambiente Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x' # Use a versão estável mais recente
-          
-      # 🟢 PASSO 2 CRÍTICO: Instalar as dependências necessárias
-      # Inclui jupyter, nbformat e os pacotes do seu código (matplotlib, sklearn)
-      - name: Instalar dependências Python
-        run: |
-          pip install jupyter nbformat matplotlib scikit-learn
-          # Se você tem um requirements.txt completo, pode usar apenas:
-          # pip install -r requirements.txt
-        
-      - name: Instalar Quarto
-        uses: quarto-dev/quarto-actions/setup@v2 
-
-      - name: Renderizar o Projeto Quarto
-        # Esta etapa agora deve funcionar porque o kernel Jupyter está pronto
-        run: quarto render
-
-      - name: Configurar Publicação (Artifact)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site 
-
-      - name: Publicar no GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    uses: raphateixeira/.github/.github/workflows/quarto-publish.yml@main
+    with:
+      needs_python: true
