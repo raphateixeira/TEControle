@@ -3,12 +3,16 @@ title: "Classificação"
 subtitle: "Tópicos Especiais em Controle"
 author: "Raphael Teixeira"
 date: ""
-format: 
+format:
   revealjs:
-    theme: [default, ../TemaRTx.scss] # Seu tema SCSS
+    theme: [simple, ../tema.scss] # Seu tema SCSS
     slide-number: true
     menu: false
-    logo: images/ufpa_logo.png 
+    transition: fade
+    title-slide-attributes:
+      data-background-image: "imgs/ufpa-colorido.png"
+      data-background-size: "84px"
+      data-background-position: "top 45px center"
     embed-resources: true
     scrollable: true
     # Configuração da Proporção 16:9
