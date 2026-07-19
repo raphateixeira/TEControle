@@ -5,7 +5,7 @@ author: "Raphael Teixeira"
 date: ""
 format:
   revealjs:
-    theme: [simple, ../tema.scss] # Seu tema SCSS
+    theme: [simple, ../TemaRTx.scss] # Seu tema SCSS
     slide-number: true
     menu: false
     transition: fade

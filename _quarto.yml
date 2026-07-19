@@ -51,7 +51,5 @@ website:
 # --------------------------
 format:
   html:
-    theme: default # Base de onde partem as customizações
-    # Inclui o SCSS customizado (foi movido para dentro de format:html)
-    css: TemaRTx.scss
+    theme: [cosmo, TemaRTx.scss]
     toc: true # Habilita Sumário nas páginas HTML (se aplicável)
