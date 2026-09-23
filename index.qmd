@@ -3,5 +3,7 @@ title: "Tópicos Especiais em Controle"
 subtitle: "Templates"
 ---
 
+[⬅ Site principal](https://raphateixeira.github.io)
+
 
 - [Classificação](Apresentacao\Classificacao.qmd)
